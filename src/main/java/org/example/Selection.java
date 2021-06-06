@@ -6,18 +6,17 @@ import edu.princeton.cs.algs4.StdRandom;
 public class Selection {
     public static void sort(Comparable[] a) throws InterruptedException {
         int N = a.length;
-
+        show(a, 0, 0);
         for (int i = 0; i < N; i++) {
             int min = i;
-            show(a, i);
             for (int j = i + 1; j < N; j++) {
                 if (less(a[j], a[min])) {
                     min = j;
-                    show(a, min);
+                    show(a, i, min);
                 }
             }
             exch(a, i, min);
-            show(a, i);
+            show(a, i, i);
         }
     }
 
@@ -31,21 +30,21 @@ public class Selection {
         a[j] = t;
     }
 
-    private static void show(Comparable[] a, int min) throws InterruptedException {
+    private static void show(Comparable[] a, int counter, int min) throws InterruptedException {
         StdDraw.setPenRadius(0.01);
         StdDraw.setScale(-.05, 5);
         Double interval = 0.1;
         Thread.sleep(800);
         StdDraw.clear();
         for (int i = 0; i < a.length; i++) {
-            if (i == min) {
-                StdDraw.setPenColor(StdDraw.RED);
-                StdDraw.line(interval, 0.0, interval, (double) a[i]);
-            } else if (i > min) {
+            if (i > counter && i != min) {
                 StdDraw.setPenColor(StdDraw.BLACK);
                 StdDraw.line(interval, 0.0, interval, (double) a[i]);
-            } else {
+            } else if (i <= counter && i != min) {
                 StdDraw.setPenColor(StdDraw.GRAY);
+                StdDraw.line(interval, 0.0, interval, (double) a[i]);
+            } if (i == min) {
+                StdDraw.setPenColor(StdDraw.RED);
                 StdDraw.line(interval, 0.0, interval, (double) a[i]);
             }
             interval = interval + 0.1;
