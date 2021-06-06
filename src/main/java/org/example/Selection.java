@@ -17,6 +17,7 @@ public class Selection {
             }
             exch(a, i, min);
             show(a, i, i);
+            /* Exchanged min with i so i is min and location of counter */
         }
     }
 
