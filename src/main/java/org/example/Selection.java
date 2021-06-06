@@ -12,7 +12,7 @@ public class Selection {
             for (int j = i + 1; j < N; j++) {
                 if (less(a[j], a[min])) {
                     min = j;
-                    show(a, i, min);
+                    show(a, j, min);
                 }
             }
             exch(a, i, min);
@@ -41,7 +41,7 @@ public class Selection {
             if (i > counter && i != min) {
                 StdDraw.setPenColor(StdDraw.BLACK);
                 StdDraw.line(interval, 0.0, interval, (double) a[i]);
-            } else if (i <= counter && i != min) {
+            } if (i <= counter && i != min) {
                 StdDraw.setPenColor(StdDraw.GRAY);
                 StdDraw.line(interval, 0.0, interval, (double) a[i]);
             } if (i == min) {
