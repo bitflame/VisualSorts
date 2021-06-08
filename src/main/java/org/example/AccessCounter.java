@@ -57,8 +57,8 @@ public class AccessCounter {
 
     public static void main(String[] args) {
         Merge m = new Merge();
-        StdOut.println("Array size        Number of Accesses");
-        for (int i = 1; i < 513; i++) {
+        StdOut.println("Array size  Array_Accesses UpperBound");
+        for (int i = 1; i < 10; i++) {
             Double[] a = new Double[i];
             int N = a.length;
             for (int j = 0; j < N; j++) {
